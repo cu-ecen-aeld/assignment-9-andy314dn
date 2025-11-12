@@ -26,7 +26,8 @@ AESD_ASSIGNMENTS_MODULE_SUBDIRS = aesd-char-driver
 # Build: aesdsocket (assignment 5)
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/finder-app all
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server all
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server all \
+		CFLAGS="$(TARGET_CFLAGS) -I$(@D)/aesd-char-driver"
 endef
 
 # Add your writer, finder and finder-test utilities/scripts to the installation steps below
